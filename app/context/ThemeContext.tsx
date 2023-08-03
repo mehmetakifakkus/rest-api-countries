@@ -23,17 +23,15 @@ export const ThemeProvider = ({ children }: any) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const valueObj = { darkMode, setDarkMode };
 
-  if (
-    darkMode ||
-    (!("darkMode" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
+  if (process.browser) {
+    // document is not defined in SSR
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }
-
-  // // Whenever the user explicitly chooses light mode
+  // Whenever the user explicitly chooses light mode
   // localStorage.darkMode = JSON.stringify(darkMode);
 
   return (
