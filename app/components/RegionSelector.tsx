@@ -3,7 +3,6 @@
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import cx from "classnames";
 import React from "react";
-import {} from "../context/CountryContext";
 import OutsideAlerter from "./OutsideAlerter";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createSearchQuery } from "../lib/utilities";
