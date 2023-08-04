@@ -4,11 +4,17 @@ This is a Nextjs application that provides information about different countries
 
 ## Screenshots
 
-![Dark Theme](screenshots/dark-theme.png)
-_Dark Theme_
+### Light Theme
+![Light Theme](screenshots/lightMode-mainpage.png)
+### Dark Theme
+![Dark Theme](screenshots/darkMode-mainpage.png)
 
-![Light Theme](screenshots/light-theme.png)
-_Light Theme_
+### Details Page
+![Details Page](screenshots/detailPage.png)
+
+### Search and Filtering
+![Search and Filtering Page](screenshots/searchAndFiltering.png)
+
 
 ## Live Site
 
@@ -21,7 +27,7 @@ Check out the live site [here]().
 - Search for a specific country by name
 - Filter countries by region
 - Choose between dark and light themes for a personalized experience
-- Jump another country using border country list
+- Jump another country from the detail page (using border country list)
 - System stores your latest search value and filter value when you go back to the main page
 
 ## Tech Stack
@@ -35,7 +41,7 @@ The project is built using the following technologies:
 
 ## Installation and Usage
 
-- Clone the repository: `git clone https://github.com/your-username/rest-countries-api.git`
+- Clone the repository: `git clone https://github.com/mehmetakifakkus/rest-api-countries.git`
 - Navigate to the project directory: `cd rest-api-countries`
 - Run `npm install` to install project dependencies.
 - Run `npm run dev` to start the development server.
