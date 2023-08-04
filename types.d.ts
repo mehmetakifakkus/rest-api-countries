@@ -28,6 +28,7 @@ export interface Country {
   car: Car
   timezones: string[]
   continents: string[]
+  borders: string[]
   flags: Flags
   coatOfArms: CoatOfArms
   startOfWeek: string
@@ -41,25 +42,18 @@ export interface Name {
 }
 
 export interface NativeName {
-  eng: Eng
-  jam: Jam
+  [key: string]: NativeNameProps
 }
 
-export interface Eng {
+export interface NativeNameProps {
   official: string
   common: string
 }
-
-export interface Jam {
-  official: string
-  common: string
-}
-
 export interface Currencies {
-  JMD: Jmd
+  [key: string]: CurrenciesProps
 }
 
-export interface Jmd {
+export interface CurrenciesProps {
   name: string
   symbol: string
 }
@@ -70,8 +64,7 @@ export interface Idd {
 }
 
 export interface Languages {
-  eng: string
-  jam: string
+  [key: string]: string
 }
 
 export interface Translations {
@@ -84,16 +77,11 @@ export interface TranslationObject {
 }
 
 export interface Demonyms {
-  eng: Eng2
-  fra: Fra2
+  eng: DemonymsProps
+  fra: DemonymsProps
 }
 
-export interface Eng2 {
-  f: string
-  m: string
-}
-
-export interface Fra2 {
+export interface DemonymsProps {
   f: string
   m: string
 }
