@@ -18,7 +18,9 @@ export default function CountryCart({ country }: Props) {
         <div className="h-16">
           <p className="text-lg font-semibold">{country.name.common}</p>
         </div>
-        <p className="text-sm mb-1">Population: {country.population}</p>
+        <p className="text-sm mb-1">
+          Population: {country.population.toLocaleString()}
+        </p>
         <p className="text-sm mb-1">Region: {country.region}</p>
         <p className="text-sm">Capital: {country.capital}</p>
       </div>
