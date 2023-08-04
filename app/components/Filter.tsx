@@ -1,25 +1,25 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React from "react";
-import { useCountryContext } from "../context/CountryContext";
+import { createSearchQuery } from "../lib/utilities";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function Filter() {
-  const { setFilteredCountries, allCountries } = useCountryContext();
+interface Props {
+  defaultValue?: string;
+}
 
-  const handleChange = (value: string) => {
-    const filtered = allCountries.filter((country) =>
-      country.name.common.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredCountries(filtered);
-  };
+export default function Filter({ defaultValue }: Props) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const region = searchParams.get("region") || "";
 
   return (
-    <div className="flex flex-row items-center w-80 border-2 border-gray-400 rounded-lg h-10 bg-white pl-4 ">
+    <div className="flex flex-row items-center w-40 sm:w-80 border border-gray-400 rounded-lg h-10 bg-white pl-4 ">
       <MagnifyingGlass size={22} />
-
       <input
         className="h-full w-full rounded-lg px-4 border-none outline-none"
         type="text"
-        onChange={(e) => handleChange(e.target.value)}
+        value={searchParams.get("search") || ""}
+        onChange={(e) => router.push(createSearchQuery(e.target.value, region))}
       ></input>
     </div>
   );

@@ -8,24 +8,15 @@ import {
   useContext,
   useState,
 } from "react";
-import { getAllCountries } from "../lib/countries";
 
 export type CountryContextType = {
-  searchKey: string;
-  setSearchKey: Dispatch<SetStateAction<string>>;
-  setRegion: string;
-  setSetRegion: Dispatch<SetStateAction<string>>;
   allCountries: Country[];
   setAllCountries: Dispatch<SetStateAction<Country[]>>;
-  filteredCountries: Country[];
-  setFilteredCountries: Dispatch<SetStateAction<Country[]>>;
+  filteredCountries: Country[] | null;
+  setFilteredCountries: Dispatch<SetStateAction<Country[] | null>>;
 };
 
 const CountryContext = createContext<CountryContextType>({
-  searchKey: "",
-  setSearchKey: () => {},
-  setRegion: "",
-  setSetRegion: () => {},
   allCountries: [],
   setAllCountries: () => {},
   filteredCountries: [],
@@ -35,16 +26,11 @@ const CountryContext = createContext<CountryContextType>({
 // create a provider for components to consume and subscribe to changes
 export const CountryProvider = ({ children }: any) => {
   const [allCountries, setAllCountries] = useState<Country[]>([]);
-  const [searchKey, setSearchKey] = useState<string>("");
-  const [setRegion, setSetRegion] = useState<string>("");
-  const [filteredCountries, setFilteredCountries] =
-    useState<Country[]>(allCountries);
+  const [filteredCountries, setFilteredCountries] = useState<Country[] | null>(
+    null
+  );
 
   const valueObj: CountryContextType = {
-    searchKey,
-    setSearchKey,
-    setRegion,
-    setSetRegion,
     allCountries,
     setAllCountries,
     filteredCountries,
