@@ -2,6 +2,10 @@
 
 This is a Nextjs application that provides information about different countries using the REST Countries API. 
 
+## Live Site
+
+Check out the live site [here](https://rest-api-countries-rosy.vercel.app/).
+
 ## Screenshots
 
 ### Light Theme
@@ -15,10 +19,6 @@ This is a Nextjs application that provides information about different countries
 ### Search and Filtering
 ![Search and Filtering Page](screenshots/searchAndFiltering.png)
 
-
-## Live Site
-
-Check out the live site [here]().
 
 ## Features
 
