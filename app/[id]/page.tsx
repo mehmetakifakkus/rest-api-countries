@@ -1,6 +1,6 @@
 import { Country, CurrenciesProps, NativeNameProps } from "@/types";
 import Image from "next/image";
-import { getAllCountries } from "../lib/countries";
+import { getAllCountries, getCountryById } from "../lib/countries";
 import BackButton from "../components/BackButton";
 import CountryBorder from "../components/CountryBorder";
 
@@ -15,14 +15,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
   const { id } = params;
-  const res = await fetch(
-    `https://restcountries.com/v3.1/${
-      id.length === 3 ? `alpha/${id}` : `name/${id}`
-    }`
-  );
-
-  const country = (await res.json())[0];
-  console.log(country);
+  const country = (await getCountryById(id))[0];
 
   let currency = country?.currencies
     ? (Object.values(country?.currencies)[0] as CurrenciesProps)
